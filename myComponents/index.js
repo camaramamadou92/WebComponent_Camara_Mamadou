@@ -45,7 +45,11 @@ class myComponent extends HTMLElement {
     <h1>Version Lecteur Audio amélioré CAMARA Mamadou</h1>
     <canvas id="myCanvas" width=400 height=100></canvas>
         <br>
+        <hr/>
+        <center>
         <audio id="player" src="${this.src}" controls crossorigin="anonymous"></audio>
+        </center>
+       
         <br>
         <hr/>
         <center>
@@ -53,8 +57,12 @@ class myComponent extends HTMLElement {
         <img id="pause" src="myComponents/assets/knobs/pause.jpg" style="width:70px; height:70px; border-radius:100%;">
         <img id="stop" src="myComponents/assets/knobs/stop.jpg" style="width:70px; height:70px; border-radius:100%;">
         </center>
+        <hr/>
         <br>
         <center>
+        <webaudio-knob id="baLancer" tooltip="Balancer:%s" src="./assets/knobs/metal.png" sprites="30" diameter="128" style="height:128px" min=-1.5 max=1.5 step=0.1 value=0>
+        Balance
+        </webaudio-knob>
         <webaudio-knob id="volumeSlider" tooltip="Volume:%s" src="./assets/knobs/metal.png" sprites="30" diameter="128" style="height:128px" min=0 max=3 step=0.1 value=1.5>
         Volume
         </webaudio-knob>
@@ -135,6 +143,11 @@ class myComponent extends HTMLElement {
       this.player.pause();
       this.player.currentTime = 0;
     });
+    //balance
+    this.shadowRoot.querySelector('#baLancer').addEventListener('input', (evt) => {
+      this.player.volume = evt.target.value;
+    });
+    //volume
     this.shadowRoot.querySelector('#volumeSlider').addEventListener('input', (evt) => {
       this.player.volume = evt.target.value;
     });
