@@ -1,7 +1,7 @@
 import './lib/webaudio-controls.js';
 
 const getBaseURL = () => {
-	return new URL('.', import.meta.url);
+  return new URL('.', import.meta.url);
 };
 
 class myComponent extends HTMLElement {
@@ -17,41 +17,57 @@ class myComponent extends HTMLElement {
   connectedCallback() {
     // Do something
     this.shadowRoot.innerHTML = `
-        <style>
-            h1 {
-                color:red;
-            }
-            #myCanvas {
-              border:1px solid;
-            }
-        </style>
-        <h1>lecteur audio amélioré</h1>
-        <canvas id="myCanvas" width=400 height=100></canvas>
+    <style>
+    h1 {
+      color:red;
+      align-text: center;
+  }
+  #myCanvas {
+    border:1px solid;
+  }
+  section {
+    margin: 0px auto;
+    padding: auto;
+    height: 100%;
+    width: 100%;
+    border: 2px solid blue;
+    border-radius: 0%;
+    background-image: url('myComponents/assets/knobs/fond.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+  }
+  </style>
+    
+    <section>
+    <h1>Version Lecteur Audio amélioré CAMARA Mamadou</h1>
+    <canvas id="myCanvas" width=400 height=100></canvas>
         <br>
         <audio id="player" src="${this.src}" controls crossorigin="anonymous"></audio>
         <br>
-        <button id="play">Play</button>
-        <button id="pause">Pause</button>
-        <button id="stop">Stop</button>
+        <hr/>
+        <center>
+        <img id="play" src="myComponents/assets/knobs/play.jpg" style="width:70px; height:70px; border-radius:100%;">
+        <img id="pause" src="myComponents/assets/knobs/pause.jpg" style="width:70px; height:70px; border-radius:100%;">
+        <img id="stop" src="myComponents/assets/knobs/stop.jpg" style="width:70px; height:70px; border-radius:100%;">
+        </center>
         <br>
-        <label>Volume 
-          <input id="volumeSlider" 
-          type="range" min=0 max=2 step=0.1 value="1">
-        </label>
-        <br>
-        <webaudio-knob 
-          id="volumeKnob" 
-          src="./assets/knobs/vernier.png" 
-          value="1" max="2" step="0.1" diameter="128" sprites="50" 
-          valuetip="0" tooltip="Volume">
+        <center>
+        <webaudio-knob id="volumeSlider" tooltip="Volume:%s" src="./assets/knobs/metal.png" sprites="30" diameter="128" style="height:128px" min=0 max=3 step=0.1 value=1.5>
+        Volume
         </webaudio-knob>
+        </center>
+        <br>
+        </section>
     `;
 
     this.fixRelativeURLs();
 
     this.player = this.shadowRoot.querySelector('#player');
 
-    
+
 
     this.buildGraph();
 
@@ -78,7 +94,7 @@ class myComponent extends HTMLElement {
     this.canvasCtx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // 2 - je dessine la waveform
-    this.canvasCtx.fillRect(10+Math.random()*10, 10, 20, 20);
+    this.canvasCtx.fillRect(10 + Math.random() * 10, 10, 20, 20);
 
     // 3 - on rappelle la fonction dans 1/60ème de seconde
     requestAnimationFrame(() => {
@@ -101,7 +117,7 @@ class myComponent extends HTMLElement {
       console.log("fixing " + knob.getAttribute('src'));
 
       const src = knob.src;
-      knob.src =  baseURL  + src;
+      knob.src = baseURL + src;
 
       console.log("new value : " + knob.src);
     }
