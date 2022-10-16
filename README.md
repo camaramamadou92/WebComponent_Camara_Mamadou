@@ -4,7 +4,7 @@ Dans ce TP nous allons devoir écrire un lecteur audio "amélioré" sous forme d
 
 Je suis parti de la version que le prof a fait en classe et essayer une amélioration selon ma compréhension
 J'ai ajouté un background et téléchargé les images de boutons.
-J'ai repris des bouts de codes afin d'avoir cette version que j'ai au final.
+J'ai repris des bouts de codes (compréhension de code afin de l'adapter), cette version que j'ai au final est issue de la compréhension.
 En étudiant ces codes j'ai pu comprendre d'avantage la notion demandée dans ce TP.
 
 ## Images des boutons
