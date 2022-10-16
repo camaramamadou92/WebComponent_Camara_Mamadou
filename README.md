@@ -3,7 +3,9 @@
 Dans ce TP nous allons devoir écrire un lecteur audio "amélioré" sous forme de Web Component:
 
 Je suis parti de la version que le prof a fait en classe et essayer une amélioration selon ma compréhension
-J'ai ajouté un background et téléchargé les images de boutons
+J'ai ajouté un background et téléchargé les images de boutons.
+J'ai repris des bouts de codes afin d'avoir cette version que j'ai au final.
+En étudiant ces codes j'ai pu comprendre d'avantage la notion demandée dans ce TP.
 
 ## Images des boutons
 J'ai téléchargé les images des boutons sur le site:
